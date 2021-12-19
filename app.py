@@ -64,7 +64,7 @@ def chat(request):
     return '무슨 말인지 모르겠어요'
 # chatbot 대답코드 END
 
-# 맛집 리스트 출력 코드
+### ---  맛집 리스트 출력 코드 --- ###
 def restaurant_list(region):
     # 주피터 에러 메시지 제거
     warnings.filterwarnings(action='ignore')
@@ -106,9 +106,7 @@ def restaurant_list(region):
 
     import webbrowser
     webbrowser.open_new('맛집 리스트.html')
-
-
-# 맛집 리스트 출력 코드 END
+### ---  맛집 리스트 출력 코드 END --- ###
 
 
 # app 실행 시작 및 html 실행, 채팅 get하여 대답 return
@@ -127,9 +125,11 @@ def home():
 def get_bot_response():
     userText = request.args.get('msg')
     ans = str(chat(userText))
+
+    # rule : 서울|맛집 / response : 서울 맛집 입니다.
     if (ans == '서울 맛집 입니다.') :
         restaurant_list("서울특별시")
-        
+
     return ans
  
 if __name__ == "__main__":
