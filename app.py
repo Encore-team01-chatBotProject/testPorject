@@ -15,6 +15,7 @@ from chatterbot import ChatBot
 from chatterbot.trainers import ChatterBotCorpusTrainer
 from pandas import Series, DataFrame
 
+# Oracle DB 연동
 import cx_Oracle
 import os
 
@@ -25,12 +26,12 @@ connection = cx_Oracle.connect("scott", "tiger", "127.0.0.1:1521/xe")
 cursor = connection.cursor()
 
 # chatbot 대답 코드
-import pandas as pd
 chat_dic = {}
 
 cursor.execute("SELECT * FROM chatbot")
 
 chatbot_data = DataFrame(cursor,columns=['request','rule','response'])
+# import pandas as pd
 # chatbot_data = pd.read_excel("./data/chatbot_data.xlsx")
 
 row = 0
@@ -50,7 +51,7 @@ def chat(request):
         if chat_flag:
                 return chatbot_data['response'][k]
     return '무슨 말인지 모르겠어요'
-# chatbot 대답코드 END
+# chatbot 대답 코드 END
 
 # app 실행 시작 및 html 실행, 채팅 get하여 대답 return
 app = Flask(__name__)
