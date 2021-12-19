@@ -7,6 +7,7 @@ Created on Sun Dec 19 11:58:34 2021
 chatterbot 설치시 에러 발생시 1.0.4로 설치하면 됨
 pip install chatterbot
 pip install chatterbot==1.0.4
+123123
 
 """
 from flask import Flask, render_template, request
