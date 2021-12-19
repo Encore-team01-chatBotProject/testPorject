@@ -13,13 +13,27 @@ aa
 from flask import Flask, render_template, request
 from chatterbot import ChatBot
 from chatterbot.trainers import ChatterBotCorpusTrainer
+from pandas import Series, DataFrame
+
+import cx_Oracle
+import os
+
+LOCATION = r"C:\instantclient_21_3"
+os.environ["PATH"] = LOCATION + ";" + os.environ["PATH"] #환경변수 등록
+
+connection = cx_Oracle.connect("scott", "tiger", "127.0.0.1:1521/xe")
+cursor = connection.cursor()
 
 # chatbot 대답 코드
 import pandas as pd
 chat_dic = {}
-row = 0
-chatbot_data = pd.read_excel("c:/work_py/project/data/chatbot_data.xlsx")
 
+cursor.execute("SELECT * FROM chatbot")
+
+chatbot_data = DataFrame(cursor,columns=['request','rule','response'])
+# chatbot_data = pd.read_excel("./data/chatbot_data.xlsx")
+
+row = 0
 for rule in chatbot_data['rule']:
     chat_dic[row] = rule.split('|')
     row += 1
