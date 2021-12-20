@@ -17,7 +17,7 @@ from chatterbot.trainers import ChatterBotCorpusTrainer
 import pandas as pd
 chat_dic = {}
 row = 0
-chatbot_data = pd.read_excel("c:/work_py/project/data/chatbot_data.xlsx")
+chatbot_data = pd.read_excel("./data/chatbot_data.xlsx")
 
 for rule in chatbot_data['rule']:
     chat_dic[row] = rule.split('|')
