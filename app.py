@@ -13,11 +13,23 @@ pip install chatterbot==1.0.4
 from flask import Flask, render_template, request
 from chatterbot import ChatBot
 from chatterbot.trainers import ChatterBotCorpusTrainer
-
+from bs4 import BeautifulSoup as bs
+import requests
 import pandas as pd
+
+def forClawer(keword):
+    html = requests.get('https://search.naver.com/search.naver?query='+keword)
+    soup=bs(html.text,'html.parser')
+    data1=soup.find('div',class_='temperature_text').find('strong').text
+    print(data1)
+    if data1 :
+        return data1
+    else : 
+        return '지역을 다시 입력 하세요' 
+
 chat_dic = {}
 row = 0
-chatbot_data = pd.read_excel("c:/work_py/project/data/chatbot_data.xlsx")
+chatbot_data = pd.read_excel("C:/workspace_flask/testPorject/data/chatbot_data.xlsx")
 
 for rule in chatbot_data['rule']:
     chat_dic[row] = rule.split('|')
@@ -29,6 +41,9 @@ def chat(request):
         for word in v:
             if word in request:
                 chat_flag = True
+                
+                if word in '날씨':
+                    return forClawer(request)
             else:
                 chat_flag = False
                 break
@@ -53,4 +68,4 @@ def get_bot_response():
     return str(chat(userText))
  
 if __name__ == "__main__":
-    app.run(port=9005)
+    app.run(host='192.168.1.233',port=9006)
