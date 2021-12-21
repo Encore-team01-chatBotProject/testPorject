@@ -5,16 +5,6 @@ import pandas as pd
 import folium
 import webbrowser
 
-def forClawer(keword):
-    html = requests.get('https://search.naver.com/search.naver?query='+keword)
-    soup=bs(html.text,'html.parser')
-    data1=soup.find('div',class_='temperature_text').find('strong').text
-    print(data1)
-    if data1 :
-        return data1
-    else : 
-        return '지역을 다시 입력 하세요' 
-
 def all_dust(keword):
     url = "https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query="+keword
     html_dust = requests.get(url).text
