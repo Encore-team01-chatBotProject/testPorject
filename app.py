@@ -10,15 +10,17 @@ pip install chatterbot==1.0.4
 aa
 """
 from flask import Flask, render_template, request
-from chatterbot import ChatBot
-from chatterbot.trainers import ChatterBotCorpusTrainer
+from django.shortcuts import render
+from django import template
+from folium.folium import Map
+
 from pandas import Series, DataFrame
 
 import cx_Oracle
 import os
 
 # 지도 표시를 위한 import
-    
+import webbrowser
 import folium
 import googlemaps
 import pandas as pd
@@ -50,17 +52,30 @@ for rule in chatbot_data['rule']:
     chat_dic[row] = rule.split('|')
     row += 1
      
-def chat(request):
+def chat(requests):
     for k, v in chat_dic.items():
         chat_flag = False
         for word in v:
-            if word in request:
+            if '맛집' in requests:
+                print('맛집')
+                maps=restaurant_list('서울특별시')
+                return render(request,'./templates/index.html',{'map' : maps})
+
+            if word in requests:
                 chat_flag = True
             else:
                 chat_flag = False
                 break
+
+                
         if chat_flag:
-                return chatbot_data['response'][k]
+            
+            res = chatbot_data['response'][k]
+            # rule : 서울|맛집 / response : 서울 맛집 입니다.
+            if (res == '서울 맛집 입니다.') :
+                res = restaurant_list("서울특별시")
+            
+            return res
     return '무슨 말인지 모르겠어요'
 # chatbot 대답코드 END
 
@@ -102,19 +117,19 @@ def restaurant_list(region):
             tooltip=('<b>- 도시명</b>: ' + restaurant_df['도시명'][n] + '<br />'+
                      '<b>- 상호명</b>: ' + restaurant_df['식당상호'][n])
         ).add_to(map)
-    map.save('맛집 리스트.html')
+    map._repr_html_
+    #지도를 템플릿에 삽입하기위해 iframe이 있는 문자열로 반환
+    
+    return map
 
-    import webbrowser
-    webbrowser.open_new('맛집 리스트.html')
+
+    # webbrowser.open_new('restaurant_list.html')
+
 ### ---  맛집 리스트 출력 코드 END --- ###
 
 
 # app 실행 시작 및 html 실행, 채팅 get하여 대답 return
 app = Flask(__name__)
-
-english_bot = ChatBot("Chatterbot", storage_adapter="chatterbot.storage.SQLStorageAdapter")
-trainer = ChatterBotCorpusTrainer(english_bot)
-trainer.train("chatterbot.corpus.english")
  
 @app.route("/")
 def home():
@@ -124,11 +139,7 @@ def home():
 @app.route("/get")
 def get_bot_response():
     userText = request.args.get('msg')
-    ans = str(chat(userText))
-
-    # rule : 서울|맛집 / response : 서울 맛집 입니다.
-    if (ans == '서울 맛집 입니다.') :
-        restaurant_list("서울특별시")
+    ans = chat(userText)
 
     return ans
  

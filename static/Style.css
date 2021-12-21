@@ -5,7 +5,7 @@ background-color: black;
 }
 h1
 {
-color: black;
+color: white;
 margin-bottom: 0;
 margin-top: 0;
 text-align: center;
@@ -23,13 +23,12 @@ text-align: center;
 background-color: black;
 margin-left: auto;
 margin-right: auto;
-width: 40%;
-margin-top: 60px;
+width: 100%;
 }
 #userInput {
 margin-left: auto;
 margin-right: auto;
-width: 40%;
+width: 100%;
 margin-top: 60px;
 }
 #textInput {
@@ -43,6 +42,12 @@ font-size: 17px;
 padding: 3px;
 font-family: monospace;
 font-size: 17px;
+}
+.all{
+margin-left: 60px;
+width: 45%;
+overflow: auto;
+height: 650px;
 }
 .userText {
 color: white;
