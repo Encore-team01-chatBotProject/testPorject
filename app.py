@@ -20,6 +20,28 @@ import webbrowser
 
 
 
+# DB 연동
+
+import cx_Oracle
+import os
+from pandas import Series, DataFrame
+
+LOCATION = r"C:\instantclient_21_3"
+os.environ["PATH"] = LOCATION + ";" + os.environ["PATH"] #환경변수 등록
+
+connection = cx_Oracle.connect("scott", "tiger", "127.0.0.1:1521/xe")
+cursor = connection.cursor()
+
+# chatbot 대답 코드
+import pandas as pd
+chat_dic = {}
+
+cursor.execute("SELECT * FROM chatbot")
+
+chatbot_data = DataFrame(cursor,columns=['request','rule','response'])
+
+# DB 연동 END
+
 naver_excel=pd.read_excel('C:/workspace/work_py/mini/testPorject/data/naver_data.xlsx')
 
 
@@ -72,7 +94,7 @@ def for_all_clawer(keyword):
 
 chat_dic = {}
 row = 0
-chatbot_data = pd.read_excel("C:/workspace/work_py/mini/testPorject/data/chatbot_data.xlsx")
+#chatbot_data = pd.read_excel("C:/workspace/work_py/mini/testPorject/data/chatbot_data.xlsx")
 
 for rule in chatbot_data['rule']:
     chat_dic[row] = rule.split('|')
@@ -84,7 +106,8 @@ def chat(request):
         for word in v:
             if word in request:
                 chat_flag = True
-                
+
+
             if request in '날씨':
                 return for_one_clawer(request)
             if request in '전국':
