@@ -20,11 +20,11 @@ import webbrowser
 
 
 
-naver_excel=pd.read_excel('C:/workspace_flask/testPorject/data/naver_data.xlsx')
+naver_excel=pd.read_excel('C:/workspace/work_py/mini/testPorject/data/naver_data.xlsx')
 
 
-def for_one_clawer(keword):
-    html = requests.get('https://search.naver.com/search.naver?query='+keword)
+def for_one_clawer(keyword):
+    html = requests.get('https://search.naver.com/search.naver?query='+keyword)
     soup=bs(html.text,'html.parser')
     data1=soup.find('div',class_='temperature_text').find('strong').text
     data2=soup.find('p',class_='summary').text
@@ -36,7 +36,7 @@ def for_one_clawer(keword):
         return '지역을 다시 입력 하세요' 
 
 def for_all_clawer(keyword):
-    html = requests.get('https://search.naver.com/search.naver?query='+keword+'날씨').text
+    html = requests.get('https://search.naver.com/search.naver?query='+keyword+'날씨').text
     soup=bs(html,'lxml')
     data5=soup.find('div',class_='map _map_normal').findAll('span')
     data5_text=[title.get_text() for title in data5]
@@ -72,7 +72,7 @@ def for_all_clawer(keyword):
 
 chat_dic = {}
 row = 0
-chatbot_data = pd.read_excel("C:/workspace_flask/testPorject/data/chatbot_data.xlsx")
+chatbot_data = pd.read_excel("C:/workspace/work_py/mini/testPorject/data/chatbot_data.xlsx")
 
 for rule in chatbot_data['rule']:
     chat_dic[row] = rule.split('|')
@@ -85,11 +85,11 @@ def chat(request):
             if word in request:
                 chat_flag = True
                 
-                if word in '날씨':
-                    return for_one_clawer(request)
-                if word in '전국':
-                    print("전국")
-                    return for_all_clawer(request)
+            if request in '날씨':
+                return for_one_clawer(request)
+            if request in '전국':
+                print("전국")
+                return for_all_clawer(request)
 
             else:
                 chat_flag = False
