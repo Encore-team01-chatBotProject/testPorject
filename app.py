@@ -11,6 +11,7 @@ pip install chatterbot==1.0.4
 
 """
 from flask import Flask, render_template, request
+import flask
 from bs4 import BeautifulSoup as bs
 import requests
 import pandas as pd
@@ -19,8 +20,31 @@ import folium
 import webbrowser
 
 
+# DB 연동 부분
+import cx_Oracle
+import os
 
-naver_excel=pd.read_excel('C:/workspace_flask/testPorject/data/naver_data.xlsx')
+LOCATION = r"C:\instantclient_21_3"
+os.environ["PATH"] = LOCATION + ";" + os.environ["PATH"] #환경변수 등록
+
+connection = cx_Oracle.connect("scott", "tiger", "127.0.0.1:1521/xe")
+cursor = connection.cursor()
+# DB 연동 부분 END
+
+# chatbot 테이블 불러와서 DataFrame 생성
+from pandas import Series, DataFrame
+chat_dic = {}
+
+cursor.execute("SELECT * FROM chatbot")
+
+chatbot_data = DataFrame(cursor,columns=['request','rule','response'])
+
+
+# chatbot DB 불러오기 끝
+cursor.execute("SELECT * FROM naver")
+
+naver_excel = DataFrame(cursor,columns=['지역','lat','lng'])
+# naver_excel=pd.read_excel('C:/workspace_flask/testPorject/data/naver_data.xlsx')
 
 
 def for_one_clawer(keword):
@@ -36,7 +60,7 @@ def for_one_clawer(keword):
         return '지역을 다시 입력 하세요' 
 
 def for_all_clawer(keyword):
-    html = requests.get('https://search.naver.com/search.naver?query='+keword+'날씨').text
+    html = requests.get('https://search.naver.com/search.naver?query='+keyword+'날씨').text
     soup=bs(html,'lxml')
     data5=soup.find('div',class_='map _map_normal').findAll('span')
     data5_text=[title.get_text() for title in data5]
@@ -65,14 +89,16 @@ def for_all_clawer(keyword):
             fill=True,
             tooltip='<b>-날씨</b>:'+naver_weather['날씨'][n]+'<br/>'+
             '<b>-기온</b>:'+naver_weather['기온'][n]).add_to(map)
-    # map.save('test2.html')
-    print('sssss')
-    return data5_text2
-
+    map.save('C:/workspace_flask/testPorject/data/test2.html')
+    if keyword in '지도':
+     print('지도')
+    else :
+     return data5_text2
 
 chat_dic = {}
 row = 0
-chatbot_data = pd.read_excel("C:/workspace_flask/testPorject/data/chatbot_data.xlsx")
+# DB 에서 불러옴
+# chatbot_data = pd.read_excel("C:/workspace_flask/testPorject/data/chatbot_data.xlsx")
 
 for rule in chatbot_data['rule']:
     chat_dic[row] = rule.split('|')
@@ -84,12 +110,13 @@ def chat(request):
         for word in v:
             if word in request:
                 chat_flag = True
-                
-                if word in '날씨':
-                    return for_one_clawer(request)
-                if word in '전국':
-                    print("전국")
-                    return for_all_clawer(request)
+
+            if '전국 날씨' in request :
+                return for_all_clawer(request)
+
+            if '날씨' in request:
+                return for_one_clawer(request)
+          
 
             else:
                 chat_flag = False
@@ -110,6 +137,17 @@ def home():
 def get_bot_response():
     userText = request.args.get('msg')
     return str(chat(userText))
+
+@app.route("/testmap")
+def show_map():
+    return flask.send_file('C:/workspace_flask/testPorject/data/test2.html')
+
+@app.route("/test")
+def test():
+    return render_template("test.html")
  
+
+
+
 if __name__ == "__main__":
     app.run(port=9006)

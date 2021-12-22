@@ -1,2 +1,1 @@
-
-    html = requests.get('https://search.naver.com/search.naver?query='+keword)
+C:/workspace_flask/testPorject/data/test2.html

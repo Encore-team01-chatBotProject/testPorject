@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_20b283e79b2e49e09da5ca856b0da4a8 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_20b283e79b2e49e09da5ca856b0da4a8" ></div>
+        
+</body>
+<script>    
+    
+            var map_20b283e79b2e49e09da5ca856b0da4a8 = L.map(
+                "map_20b283e79b2e49e09da5ca856b0da4a8",
+                {
+                    center: [37.5502, 126.982],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 11,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_2b76293437ed431891b32923227be7f2 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_20b283e79b2e49e09da5ca856b0da4a8);
+        
+    
+            var marker_687840147fef4c3a984edb825a782ebb = L.marker(
+                [37.5557776885486, 126.985070087077],
+                {"color": "#3186cc", "fill": true, "fillColor": "#3186cc", "radius": 10}
+            ).addTo(map_20b283e79b2e49e09da5ca856b0da4a8);
+        
+    
+            marker_687840147fef4c3a984edb825a782ebb.bindTooltip(
+                `<div>
+                     <b>-날씨</b>:맑음<br/><b>-기온</b>:3
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_71c702e4fc6a4bb6a6ac1b8e5c4ea31a = L.marker(
+                [37.9621401000847, 124.657579803005],
+                {"color": "#3186cc", "fill": true, "fillColor": "#3186cc", "radius": 10}
+            ).addTo(map_20b283e79b2e49e09da5ca856b0da4a8);
+        
+    
+            marker_71c702e4fc6a4bb6a6ac1b8e5c4ea31a.bindTooltip(
+                `<div>
+                     <b>-날씨</b>:맑음<br/><b>-기온</b>:4
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a5671a8ce09341e1a9ffe3e54c8a25b5 = L.marker(
+                [37.8913193660305, 127.735243066563],
+                {"color": "#3186cc", "fill": true, "fillColor": "#3186cc", "radius": 10}
+            ).addTo(map_20b283e79b2e49e09da5ca856b0da4a8);
+        
+    
+            marker_a5671a8ce09341e1a9ffe3e54c8a25b5.bindTooltip(
+                `<div>
+                     <b>-날씨</b>:맑음<br/><b>-기온</b>:0
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_766fe35d9bc14f8f93d56cd286e6291c = L.marker(
+                [37.7249865587184, 128.859629245075],
+                {"color": "#3186cc", "fill": true, "fillColor": "#3186cc", "radius": 10}
+            ).addTo(map_20b283e79b2e49e09da5ca856b0da4a8);
+        
+    
+            marker_766fe35d9bc14f8f93d56cd286e6291c.bindTooltip(
+                `<div>
+                     <b>-날씨</b>:흐림<br/><b>-기온</b>:6
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ab70acee53a74fa2811cdf4b4f0fff62 = L.marker(
+                [36.6267556309948, 127.496515899621],
+                {"color": "#3186cc", "fill": true, "fillColor": "#3186cc", "radius": 10}
+            ).addTo(map_20b283e79b2e49e09da5ca856b0da4a8);
+        
+    
+            marker_ab70acee53a74fa2811cdf4b4f0fff62.bindTooltip(
+                `<div>
+                     <b>-날씨</b>:맑음<br/><b>-기온</b>:5
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f6c9ad84dd974822902e1bfd3fd199a8 = L.marker(
+                [36.3806654031377, 127.41984913426],
+                {"color": "#3186cc", "fill": true, "fillColor": "#3186cc", "radius": 10}
+            ).addTo(map_20b283e79b2e49e09da5ca856b0da4a8);
+        
+    
+            marker_f6c9ad84dd974822902e1bfd3fd199a8.bindTooltip(
+                `<div>
+                     <b>-날씨</b>:맑음<br/><b>-기온</b>:4
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9b16e859fff744cea652da32ffea3df8 = L.marker(
+                [35.8638923944849, 128.574044241117],
+                {"color": "#3186cc", "fill": true, "fillColor": "#3186cc", "radius": 10}
+            ).addTo(map_20b283e79b2e49e09da5ca856b0da4a8);
+        
+    
+            marker_9b16e859fff744cea652da32ffea3df8.bindTooltip(
+                `<div>
+                     <b>-날씨</b>:맑음<br/><b>-기온</b>:5
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ef2fb98d29fc40768c6935c7e6b29d4b = L.marker(
+                [35.2015657945284, 129.058064836969],
+                {"color": "#3186cc", "fill": true, "fillColor": "#3186cc", "radius": 10}
+            ).addTo(map_20b283e79b2e49e09da5ca856b0da4a8);
+        
+    
+            marker_ef2fb98d29fc40768c6935c7e6b29d4b.bindTooltip(
+                `<div>
+                     <b>-날씨</b>:맑음<br/><b>-기온</b>:8
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d458a248818042908c4fce295afbca36 = L.marker(
+                [37.4899660054861, 130.93944212844],
+                {"color": "#3186cc", "fill": true, "fillColor": "#3186cc", "radius": 10}
+            ).addTo(map_20b283e79b2e49e09da5ca856b0da4a8);
+        
+    
+            marker_d458a248818042908c4fce295afbca36.bindTooltip(
+                `<div>
+                     <b>-날씨</b>:약한비계속<br/><b>-기온</b>:4
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9cad0e46cac841a88c4d8944e776b448 = L.marker(
+                [35.8309974443219, 127.142023264096],
+                {"color": "#3186cc", "fill": true, "fillColor": "#3186cc", "radius": 10}
+            ).addTo(map_20b283e79b2e49e09da5ca856b0da4a8);
+        
+    
+            marker_9cad0e46cac841a88c4d8944e776b448.bindTooltip(
+                `<div>
+                     <b>-날씨</b>:맑음<br/><b>-기온</b>:5
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_be13493101cf47d3b8baaa389ba61495 = L.marker(
+                [35.206603946237, 126.866098962607],
+                {"color": "#3186cc", "fill": true, "fillColor": "#3186cc", "radius": 10}
+            ).addTo(map_20b283e79b2e49e09da5ca856b0da4a8);
+        
+    
+            marker_be13493101cf47d3b8baaa389ba61495.bindTooltip(
+                `<div>
+                     <b>-날씨</b>:맑음<br/><b>-기온</b>:6
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e1ec365ddca64157a52b3913db5c2c3c = L.marker(
+                [33.4149082547921, 126.795593265549],
+                {"color": "#3186cc", "fill": true, "fillColor": "#3186cc", "radius": 10}
+            ).addTo(map_20b283e79b2e49e09da5ca856b0da4a8);
+        
+    
+            marker_e1ec365ddca64157a52b3913db5c2c3c.bindTooltip(
+                `<div>
+                     <b>-날씨</b>:맑음<br/><b>-기온</b>:10
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
