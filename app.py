@@ -89,7 +89,7 @@ def for_all_clawer(keyword):
             fill=True,
             tooltip='<b>-날씨</b>:'+naver_weather['날씨'][n]+'<br/>'+
             '<b>-기온</b>:'+naver_weather['기온'][n]).add_to(map)
-    map.save('C:/workspace_flask/testPorject/data/test2.html')
+    map.save('C:/workspace_flask/testPorject/data/test3.html')
     if keyword in '지도':
      print('지도')
     else :
@@ -140,13 +140,12 @@ def get_bot_response():
 
 @app.route("/testmap")
 def show_map():
-    return flask.send_file('C:/workspace_flask/testPorject/data/test2.html')
+    return flask.send_file('C:/workspace_flask/testPorject/data/test3.html')
 
 @app.route("/test")
 def test():
     return render_template("test.html")
  
-
 
 
 if __name__ == "__main__":
