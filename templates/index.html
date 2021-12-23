@@ -22,10 +22,11 @@
             </div>
             
             <script>
-            setInterval(function() {
-                $("#maps").load(location.href+" #if","");
-            },1000);
-            
+            function homereload()
+            {
+                maps.location.reload();
+            }
+
             function getBotResponse() {
                 var rawText = $("#textInput").val();
                 var userHtml = '<p class="userText"><span>' + rawText + '</span></p>';
@@ -38,9 +39,16 @@
                     var botHtml = '<p class="botText"><span>' + text_ans[0] + '</span></p>';
                     $("#chatbox").append(botHtml);
                     if(text_ans[1] != ""){
-                        var botMap = '<iframe id="if" src="http://127.0.0.1:9005/'+text_ans[1]+'" width="300" height="200"></iframe>';
+                        var mapPath = "http://127.0.0.1:9005/"+text_ans[1];
+                        //$("#maps").val(mapPath);
+                        //$('#maps').attr('mapPath',mapPath); 
+                        //homereload()
+                        //document.getElementById('maps').contentDocument.location.reload(true);
+                        //var botMap = '<iframe name="if" src='+mapPath+' width="500" height="500"></iframe>';
+                        //$("#maps").append(botMap);
+                        alert("update");
+                        maps.location.href=mapPath; 
                         
-                        $("#maps").append(botMap);
                     }
                     document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
                 });
@@ -57,7 +65,9 @@
             })
             </script>
         </div>
-        <div class="right" id="maps"></div>
+        <div class="right">
+            <iframe id="maps" name="maps" scr="http://127.0.0.1:9005/restaurant" width="500" height="500"></iframe>
+        </div>
     </div>
 </body>
 </html>

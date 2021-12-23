@@ -54,7 +54,7 @@ def for_all_clawer(keyword):
             '현재 온도 : '+naver_weather_df['기온'][n]+'℃<br />')
 
     if type(maps) == folium.folium.Map :
-        maps.save('./templates/weather.html')
+        maps.save('./templates/restaurant.html')
     else : 
         res = '날씨 확인할 지역을 제대로 입력해 주세요'
         
@@ -110,7 +110,7 @@ def all_dust(keyword):
             res = res + n + ' 미세먼지 : 오전 - '+dust_condition_last['오전예보'][n]+ ' / 오후 - '+dust_condition_last['오후예보'][n]+'.<br />'
     
     if type(maps) == folium.folium.Map :
-        maps.save('./templates/dust.html')
+        maps.save('./templates/restaurant.html')
     else : 
         res = '미세먼지 확인할 지역을 제대로 입력해 주세요'
     
