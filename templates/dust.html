@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_24de11346c3c41be81b3886283faa9be {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_24de11346c3c41be81b3886283faa9be" ></div>
+        
+</body>
+<script>    
+    
+            var map_24de11346c3c41be81b3886283faa9be = L.map(
+                "map_24de11346c3c41be81b3886283faa9be",
+                {
+                    center: [36.62675563, 127.4965159],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 7,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_687e80dbc4294e5a96ec4334801887bf = L.tileLayer(
+                "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"http://cartodb.com/attributions\"\u003eCartoDB\u003c/a\u003e, CartoDB \u003ca href =\"http://cartodb.com/attributions\"\u003eattributions\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_24de11346c3c41be81b3886283faa9be);
+        
+    
+            var marker_06221a5843954536a857c1e47c1a9152 = L.marker(
+                [37.5557776885486, 126.985070087077],
+                {"color": "#3186cc", "fill": true, "fillColor": "#3186cc", "radius": 10}
+            ).addTo(map_24de11346c3c41be81b3886283faa9be);
+        
+    
+            marker_06221a5843954536a857c1e47c1a9152.bindTooltip(
+                `<div>
+                     <b>서울</b> 미세 먼지 현황<br/><b>오전</b> : 보통<br/><b>오후</b> : 보통
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_28df41997d9948b38d901aac3d8034db = L.marker(
+                [37.4177183519386, 127.465743285218],
+                {"color": "#3186cc", "fill": true, "fillColor": "#3186cc", "radius": 10}
+            ).addTo(map_24de11346c3c41be81b3886283faa9be);
+        
+    
+            marker_28df41997d9948b38d901aac3d8034db.bindTooltip(
+                `<div>
+                     <b>경기</b> 미세 먼지 현황<br/><b>오전</b> : 보통<br/><b>오후</b> : 보통
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_63f918c3e0ab48ac8acbad826d4beec5 = L.marker(
+                [37.5267093456665, 126.707686681263],
+                {"color": "#3186cc", "fill": true, "fillColor": "#3186cc", "radius": 10}
+            ).addTo(map_24de11346c3c41be81b3886283faa9be);
+        
+    
+            marker_63f918c3e0ab48ac8acbad826d4beec5.bindTooltip(
+                `<div>
+                     <b>인천</b> 미세 먼지 현황<br/><b>오전</b> : 보통<br/><b>오후</b> : 보통
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b95d838e4ed3494bb038378f7e7b2d3d = L.marker(
+                [37.8136811391323, 128.163375087409],
+                {"color": "#3186cc", "fill": true, "fillColor": "#3186cc", "radius": 10}
+            ).addTo(map_24de11346c3c41be81b3886283faa9be);
+        
+    
+            marker_b95d838e4ed3494bb038378f7e7b2d3d.bindTooltip(
+                `<div>
+                     <b>강원</b> 미세 먼지 현황<br/><b>오전</b> : 보통<br/><b>오후</b> : 보통
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f324b199107346528f23a616d170100b = L.marker(
+                [36.5882715223011, 127.252517175419],
+                {"color": "#3186cc", "fill": true, "fillColor": "#3186cc", "radius": 10}
+            ).addTo(map_24de11346c3c41be81b3886283faa9be);
+        
+    
+            marker_f324b199107346528f23a616d170100b.bindTooltip(
+                `<div>
+                     <b>세종</b> 미세 먼지 현황<br/><b>오전</b> : 보통<br/><b>오후</b> : 보통
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_654a0dccabfd4da0ba9b8e4affcc0175 = L.marker(
+                [37.005216067151, 127.708116488315],
+                {"color": "#3186cc", "fill": true, "fillColor": "#3186cc", "radius": 10}
+            ).addTo(map_24de11346c3c41be81b3886283faa9be);
+        
+    
+            marker_654a0dccabfd4da0ba9b8e4affcc0175.bindTooltip(
+                `<div>
+                     <b>충북</b> 미세 먼지 현황<br/><b>오전</b> : 보통<br/><b>오후</b> : 보통
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_49e011ead5fe4b6ca590e4f8026c9c0e = L.marker(
+                [36.7111377963782, 126.781603599905],
+                {"color": "#3186cc", "fill": true, "fillColor": "#3186cc", "radius": 10}
+            ).addTo(map_24de11346c3c41be81b3886283faa9be);
+        
+    
+            marker_49e011ead5fe4b6ca590e4f8026c9c0e.bindTooltip(
+                `<div>
+                     <b>충남</b> 미세 먼지 현황<br/><b>오전</b> : 보통<br/><b>오후</b> : 보통
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_58f31c4e69174e9ea4d967584fb895bb = L.marker(
+                [36.3806654031377, 127.41984913426],
+                {"color": "#3186cc", "fill": true, "fillColor": "#3186cc", "radius": 10}
+            ).addTo(map_24de11346c3c41be81b3886283faa9be);
+        
+    
+            marker_58f31c4e69174e9ea4d967584fb895bb.bindTooltip(
+                `<div>
+                     <b>대전</b> 미세 먼지 현황<br/><b>오전</b> : 보통<br/><b>오후</b> : 보통
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_5657df906f7341b4b8df55b32fd5c3c7 = L.marker(
+                [36.2927950348313, 128.853039823652],
+                {"color": "#3186cc", "fill": true, "fillColor": "#3186cc", "radius": 10}
+            ).addTo(map_24de11346c3c41be81b3886283faa9be);
+        
+    
+            marker_5657df906f7341b4b8df55b32fd5c3c7.bindTooltip(
+                `<div>
+                     <b>경북</b> 미세 먼지 현황<br/><b>오전</b> : 보통<br/><b>오후</b> : 보통
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_29ee8cffd1a341f899c8c316fb2bd567 = L.marker(
+                [35.4716519219975, 128.16973326392],
+                {"color": "#3186cc", "fill": true, "fillColor": "#3186cc", "radius": 10}
+            ).addTo(map_24de11346c3c41be81b3886283faa9be);
+        
+    
+            marker_29ee8cffd1a341f899c8c316fb2bd567.bindTooltip(
+                `<div>
+                     <b>경남</b> 미세 먼지 현황<br/><b>오전</b> : 보통<br/><b>오후</b> : 보통
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a7f816ca28c749b2b49b4ad2872447cb = L.marker(
+                [35.8638923944849, 128.574044241117],
+                {"color": "#3186cc", "fill": true, "fillColor": "#3186cc", "radius": 10}
+            ).addTo(map_24de11346c3c41be81b3886283faa9be);
+        
+    
+            marker_a7f816ca28c749b2b49b4ad2872447cb.bindTooltip(
+                `<div>
+                     <b>대구</b> 미세 먼지 현황<br/><b>오전</b> : 보통<br/><b>오후</b> : 보통
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_cc40310d658b4e979766799f01d512e6 = L.marker(
+                [35.5649679509113, 129.252017505624],
+                {"color": "#3186cc", "fill": true, "fillColor": "#3186cc", "radius": 10}
+            ).addTo(map_24de11346c3c41be81b3886283faa9be);
+        
+    
+            marker_cc40310d658b4e979766799f01d512e6.bindTooltip(
+                `<div>
+                     <b>울산</b> 미세 먼지 현황<br/><b>오전</b> : 보통<br/><b>오후</b> : 보통
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_3d8477017c0c419cbde4c3fb0e88f278 = L.marker(
+                [35.2015657945284, 129.058064836969],
+                {"color": "#3186cc", "fill": true, "fillColor": "#3186cc", "radius": 10}
+            ).addTo(map_24de11346c3c41be81b3886283faa9be);
+        
+    
+            marker_3d8477017c0c419cbde4c3fb0e88f278.bindTooltip(
+                `<div>
+                     <b>부산</b> 미세 먼지 현황<br/><b>오전</b> : 보통<br/><b>오후</b> : 보통
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_dc245d1267d14bdaaf2645163074f143 = L.marker(
+                [35.7363857546696, 127.092034991165],
+                {"color": "#3186cc", "fill": true, "fillColor": "#3186cc", "radius": 10}
+            ).addTo(map_24de11346c3c41be81b3886283faa9be);
+        
+    
+            marker_dc245d1267d14bdaaf2645163074f143.bindTooltip(
+                `<div>
+                     <b>전북</b> 미세 먼지 현황<br/><b>오전</b> : 보통<br/><b>오후</b> : 보통
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7c3ba3d4e4c04de2a59941e1b0972adc = L.marker(
+                [34.8718672414761, 126.977386238862],
+                {"color": "#3186cc", "fill": true, "fillColor": "#3186cc", "radius": 10}
+            ).addTo(map_24de11346c3c41be81b3886283faa9be);
+        
+    
+            marker_7c3ba3d4e4c04de2a59941e1b0972adc.bindTooltip(
+                `<div>
+                     <b>전남</b> 미세 먼지 현황<br/><b>오전</b> : 보통<br/><b>오후</b> : 보통
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0b615a2252054b7ba112577378e32aa6 = L.marker(
+                [35.206603946237, 126.866098962607],
+                {"color": "#3186cc", "fill": true, "fillColor": "#3186cc", "radius": 10}
+            ).addTo(map_24de11346c3c41be81b3886283faa9be);
+        
+    
+            marker_0b615a2252054b7ba112577378e32aa6.bindTooltip(
+                `<div>
+                     <b>광주</b> 미세 먼지 현황<br/><b>오전</b> : 보통<br/><b>오후</b> : 보통
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_cf591c6ddedf48e6a93b9e3e4ccd5cea = L.marker(
+                [33.4149082547921, 126.795593265549],
+                {"color": "#3186cc", "fill": true, "fillColor": "#3186cc", "radius": 10}
+            ).addTo(map_24de11346c3c41be81b3886283faa9be);
+        
+    
+            marker_cf591c6ddedf48e6a93b9e3e4ccd5cea.bindTooltip(
+                `<div>
+                     <b>제주</b> 미세 먼지 현황<br/><b>오전</b> : 보통<br/><b>오후</b> : 보통
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>

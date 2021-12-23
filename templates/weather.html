@@ -23,7 +23,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_1b4db37ee2bb47b1a454c3f54fb4dac8 {
+                #map_1e67124b0cba403f8e47c6754c84379a {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -35,6 +35,43 @@
 </head>
 <body>    
     
-            <div class="folium-map" id="map_1b4db37ee2bb47b1a454c3f54fb4dac8" ></div>
+            <div class="folium-map" id="map_1e67124b0cba403f8e47c6754c84379a" ></div>
         
 </body>
+<script>    
+    
+            var map_1e67124b0cba403f8e47c6754c84379a = L.map(
+                "map_1e67124b0cba403f8e47c6754c84379a",
+                {
+                    center: [35.2015657945284, 129.058064836969],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 12,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_28a4eb71f5934476a8235971f3366424 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_1e67124b0cba403f8e47c6754c84379a);
+        
+    
+            var marker_90d044d04576485abce057df922de080 = L.marker(
+                [35.2015657945284, 129.058064836969],
+                {"color": "#3186cc", "fill": true, "fillColor": "#3186cc", "radius": 10}
+            ).addTo(map_1e67124b0cba403f8e47c6754c84379a);
+        
+    
+            marker_90d044d04576485abce057df922de080.bindTooltip(
+                `<div>
+                     <b>부산 날씨<b> : 맑음 상태.<br /><b>현재 기온</b> : 13℃
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
